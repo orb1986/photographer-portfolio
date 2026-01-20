@@ -120,22 +120,23 @@ Simply edit the values in `data/photos.json`:
 
 ## Dark Mode / Theme Switching
 
-The website includes an intelligent theme system with three modes:
+The website includes an intelligent theme system that respects your system preferences:
 
 ### How It Works
 
-1. **Default Behavior**: Automatically follows your system's dark/light mode preference
-2. **Manual Control**: Click the theme toggle button in the navigation bar to cycle through:
-   - 🌙 Light mode (forces light theme)
-   - ☀️ Dark mode (forces dark theme)
-   - 💫 System mode (follows system preference)
-3. **Persistent**: Your preference is saved in browser storage and remembered between visits
+1. **Default Behavior**: Automatically detects and follows your system's dark/light mode preference
+2. **Manual Override**: Click the theme toggle button to switch to the opposite theme
+   - If system is light → Click moon icon 🌙 to switch to dark
+   - If system is dark → Click sun icon ☀️ to switch to light
+   - Your manual choice is saved and persists across visits
+3. **Dynamic Updates**: Automatically updates if you change your system theme (when not manually overridden)
 
 ### Theme Icons
 
-- **Moon (🌙)**: Currently in light mode, click to switch to dark
-- **Sun (☀️)**: Currently in dark mode, click to switch to system
-- **Star (💫)**: Currently following system, click to switch to light
+- **Moon (🌙)**: Currently in light mode - click to switch to dark mode
+- **Sun (☀️)**: Currently in dark mode - click to switch to light mode
+
+The icon always shows the opposite theme (what you'll get when you click it).
 
 The theme button is located in the top navigation bar on all pages.
 

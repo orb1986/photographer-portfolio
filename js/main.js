@@ -14,66 +14,76 @@ class ThemeManager {
     }
 
     getPreferredTheme() {
-        // Check if user has a saved preference
+        // Check if user has manually overridden the theme
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
+        if (savedTheme && savedTheme !== 'system') {
             return savedTheme;
         }
 
-        // Default to system preference
-        return 'system';
+        // Default to system preference (null means follow system)
+        return null;
     }
 
     getSystemTheme() {
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
+    getCurrentEffectiveTheme() {
+        return this.currentTheme || this.getSystemTheme();
+    }
+
     applyTheme(theme) {
         this.currentTheme = theme;
-        localStorage.setItem('theme', theme);
 
-        if (theme === 'system') {
+        if (theme) {
+            // User has manually set a theme
+            localStorage.setItem('theme', theme);
+            document.documentElement.setAttribute('data-theme', theme);
+        } else {
+            // Follow system theme
+            localStorage.removeItem('theme');
             const systemTheme = this.getSystemTheme();
             document.documentElement.setAttribute('data-theme', systemTheme);
-            this.updateIcon();
-        } else {
-            document.documentElement.setAttribute('data-theme', theme);
-            this.updateIcon();
         }
+
+        this.updateIcon();
     }
 
     updateIcon() {
         if (!this.themeIcon) return;
 
-        if (this.currentTheme === 'system') {
-            this.themeIcon.textContent = '💫'; // System icon
-        } else if (this.currentTheme === 'dark') {
-            this.themeIcon.textContent = '☀️'; // Sun for switching to light
+        const effectiveTheme = this.getCurrentEffectiveTheme();
+
+        // Show icon for the OPPOSITE theme (what clicking will switch to)
+        if (effectiveTheme === 'dark') {
+            this.themeIcon.textContent = '☀️'; // Currently dark, show sun to switch to light
         } else {
-            this.themeIcon.textContent = '🌙'; // Moon for switching to dark
+            this.themeIcon.textContent = '🌙'; // Currently light, show moon to switch to dark
         }
     }
 
-    cycleTheme() {
-        // Cycle through: light -> dark -> system
-        if (this.currentTheme === 'light') {
-            this.applyTheme('dark');
-        } else if (this.currentTheme === 'dark') {
-            this.applyTheme('system');
-        } else {
+    toggleTheme() {
+        const effectiveTheme = this.getCurrentEffectiveTheme();
+
+        if (effectiveTheme === 'dark') {
+            // Currently dark, switch to light
             this.applyTheme('light');
+        } else {
+            // Currently light, switch to dark
+            this.applyTheme('dark');
         }
     }
 
     setupEventListeners() {
         if (this.themeToggle) {
-            this.themeToggle.addEventListener('click', () => this.cycleTheme());
+            this.themeToggle.addEventListener('click', () => this.toggleTheme());
         }
 
-        // Listen for system theme changes when in system mode
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (this.currentTheme === 'system') {
-                this.applyTheme('system');
+        // Listen for system theme changes when following system preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+            if (!this.currentTheme) {
+                // Only update if following system theme (currentTheme is null)
+                this.applyTheme(null);
             }
         });
     }
