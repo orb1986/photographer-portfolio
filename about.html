@@ -11,18 +11,27 @@
         <div class="nav-container">
             <a href="index.html" class="logo">PHOTOGRAPHER</a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="work.html" class="nav-link">My Work</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="about.html" class="nav-link active" data-i18n="nav.about">About</a></li>
+                <li><a href="work.html" class="nav-link" data-i18n="nav.work">My Work</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="nav-controls">
+                <button id="langToggle" class="lang-toggle" aria-label="Change language">
+                    <span class="lang-text">HR</span>
+                </button>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main>
         <section class="page-hero">
             <div class="container">
-                <h1>About Me</h1>
+                <h1 data-i18n="about.pageTitle">About Me</h1>
+                <p class="subtitle" data-i18n="about.subtitle">Professional Photographer</p>
             </div>
         </section>
 
@@ -30,23 +39,16 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image">
-                        <img src="images/photographer.jpg" alt="Photographer" onerror="this.style.display='none'">
+                        <img src="images/myself.jpg" alt="Photographer">
                     </div>
                     <div class="about-text">
-                        <h2>Hello, I'm a Photographer</h2>
-                        <p>My journey with photography began over a decade ago, and it has been an incredible adventure of discovery, creativity, and connection. I believe that every moment tells a story, and my mission is to capture those stories in their most authentic form.</p>
+                        <p data-i18n="about.bio">I am a professional photographer with a passion for capturing the beauty in everyday moments. My journey in photography began over a decade ago, and since then, I've had the privilege of working with diverse clients across multiple genres.</p>
 
-                        <p>Specializing in portrait, landscape, and event photography, I work closely with clients to understand their vision and bring it to life through compelling imagery. Whether it's a wedding, a corporate event, or a personal portrait session, I approach each project with dedication and creativity.</p>
-
-                        <h3>My Approach</h3>
-                        <p>I believe in creating a comfortable, natural environment where genuine emotions can shine through. My style combines classic composition with contemporary aesthetics, resulting in timeless images that you'll treasure for years to come.</p>
-
-                        <h3>Experience & Recognition</h3>
+                        <h3 data-i18n="about.achievementsTitle">Achievements</h3>
                         <ul class="achievements">
-                            <li>10+ years of professional photography experience</li>
-                            <li>Featured in numerous publications</li>
-                            <li>Award-winning portrait photography</li>
-                            <li>Worked with clients across multiple industries</li>
+                            <li data-i18n="about.achievement1">Featured in National Geographic</li>
+                            <li data-i18n="about.achievement2">Winner of Photography Awards 2023</li>
+                            <li data-i18n="about.achievement3">Over 500 satisfied clients worldwide</li>
                         </ul>
                     </div>
                 </div>
@@ -55,23 +57,23 @@
 
         <section class="services-section">
             <div class="container">
-                <h2 class="section-title">Services</h2>
+                <h2 class="section-title" data-i18n="about.servicesTitle">Services</h2>
                 <div class="services-grid">
                     <div class="service-card">
-                        <h3>Portrait Photography</h3>
-                        <p>Professional portraits that capture personality and character in every frame.</p>
+                        <h3 data-i18n="about.portraitsTitle">Portrait Photography</h3>
+                        <p data-i18n="about.portraitsDesc">Professional headshots and personal portraits that capture your unique personality.</p>
                     </div>
                     <div class="service-card">
-                        <h3>Event Photography</h3>
-                        <p>Comprehensive coverage of your special events, from weddings to corporate gatherings.</p>
+                        <h3 data-i18n="about.eventsTitle">Event Photography</h3>
+                        <p data-i18n="about.eventsDesc">Comprehensive coverage of your special occasions, from weddings to corporate events.</p>
                     </div>
                     <div class="service-card">
-                        <h3>Landscape Photography</h3>
-                        <p>Stunning natural landscapes and architectural photography for various purposes.</p>
+                        <h3 data-i18n="about.landscapesTitle">Landscape Photography</h3>
+                        <p data-i18n="about.landscapesDesc">Breathtaking natural scenes and architectural photography for personal and commercial use.</p>
                     </div>
                     <div class="service-card">
-                        <h3>Commercial Photography</h3>
-                        <p>Professional imagery for businesses, products, and marketing materials.</p>
+                        <h3 data-i18n="about.commercialTitle">Commercial Photography</h3>
+                        <p data-i18n="about.commercialDesc">High-quality product and business photography to elevate your brand.</p>
                     </div>
                 </div>
             </div>
@@ -80,11 +82,11 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Photography Portfolio. All rights reserved.</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Photography Portfolio. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Facebook">Facebook</a>
-                <a href="contact.html">Contact</a>
+                <a href="#" aria-label="Instagram" data-i18n="footer.instagram">Instagram</a>
+                <a href="#" aria-label="Facebook" data-i18n="footer.facebook">Facebook</a>
+                <a href="contact.html" data-i18n="footer.contact">Contact</a>
             </div>
         </div>
     </footer>

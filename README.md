@@ -5,6 +5,8 @@ A clean, minimalist photography portfolio website with easy photo management sys
 ## Features
 
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
+- **Dark Mode Support**: Automatic theme switching based on system preference, with manual toggle
+- **Multi-Language Support**: Full Croatian (HR) and English (EN) translations with language switcher
 - **4 Main Pages**:
   - Home: Hero section with featured work
   - About: Photographer bio and services
@@ -114,6 +116,71 @@ Simply edit the values in `data/photos.json`:
 - Toggle `featured` status (true/false)
 - Change the `image` path if you renamed the file
 
+## Dark Mode / Theme Switching
+
+The website includes an intelligent theme system with three modes:
+
+### How It Works
+
+1. **Default Behavior**: Automatically follows your system's dark/light mode preference
+2. **Manual Control**: Click the theme toggle button in the navigation bar to cycle through:
+   - 🌙 Light mode (forces light theme)
+   - ☀️ Dark mode (forces dark theme)
+   - 💫 System mode (follows system preference)
+3. **Persistent**: Your preference is saved in browser storage and remembered between visits
+
+### Theme Icons
+
+- **Moon (🌙)**: Currently in light mode, click to switch to dark
+- **Sun (☀️)**: Currently in dark mode, click to switch to system
+- **Star (💫)**: Currently following system, click to switch to light
+
+The theme button is located in the top navigation bar on all pages.
+
+## Language Switching
+
+The website supports full bilingual functionality with Croatian and English:
+
+### How It Works
+
+1. **Default Language**: Croatian (HR) - the site loads in Croatian by default
+2. **Language Toggle**: Click the "HR" or "EN" button in the navigation to switch languages
+3. **Persistent**: Your language preference is saved in browser storage
+4. **All Pages Translated**: Every page (Home, About, Work, Contact) has full translations
+
+### Adding/Editing Translations
+
+Translations are stored in `data/translations.json`:
+
+```json
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      ...
+    },
+    ...
+  },
+  "hr": {
+    "nav": {
+      "home": "Početna",
+      "about": "O Meni",
+      ...
+    },
+    ...
+  }
+}
+```
+
+To modify or add translations:
+1. Open `data/translations.json`
+2. Find the section you want to change (e.g., `nav`, `home`, `about`)
+3. Update the text for both `en` and `hr` languages
+4. Save the file - changes will appear immediately on page reload
+
+The language toggle button is located next to the theme toggle in the top navigation bar.
+
 ## Customization
 
 ### Changing Site Content
@@ -123,6 +190,10 @@ Simply edit the values in `data/photos.json`:
 
 **About Page:**
 - Edit `about.html` to change your bio, services, and achievements
+- Replace `images/myself.jpg` with your own photo
+  - Recommended: Portrait orientation photo
+  - The image will be automatically cropped to 3:4 aspect ratio
+  - Positioned from the top-center for best results with portraits
 
 **Contact Information:**
 - Edit `contact.html` to update email, phone, location, and social media links
@@ -135,13 +206,30 @@ Simply edit the values in `data/photos.json`:
 All styles are in `css/style.css`. Key customization areas:
 
 **Colors:**
+
+Both light and dark themes use CSS variables. Customize in `css/style.css`:
+
 ```css
 :root {
-    --primary-color: #1a1a1a;      /* Main dark color */
-    --secondary-color: #f5f5f5;    /* Light background */
-    --accent-color: #333;          /* Accent color */
-    --text-color: #333;            /* Main text */
-    --light-text: #666;            /* Secondary text */
+    /* Light theme colors */
+    --primary-color: #1a1a1a;
+    --secondary-color: #f5f5f5;
+    --accent-color: #333;
+    --text-color: #333;
+    --light-text: #666;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    /* Dark theme colors */
+    --primary-color: #ffffff;
+    --secondary-color: #2a2a2a;
+    --accent-color: #e0e0e0;
+    --text-color: #e0e0e0;
+    --light-text: #a0a0a0;
+    --bg-color: #1a1a1a;
+    --card-bg: #2a2a2a;
 }
 ```
 

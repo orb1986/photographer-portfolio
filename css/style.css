@@ -6,6 +6,7 @@
 }
 
 :root {
+    /* Light theme (default) */
     --primary-color: #1a1a1a;
     --secondary-color: #f5f5f5;
     --accent-color: #333;
@@ -13,14 +14,56 @@
     --light-text: #666;
     --white: #ffffff;
     --border-color: #e0e0e0;
+    --bg-color: #ffffff;
+    --card-bg: #ffffff;
+    --navbar-bg: #ffffff;
+    --footer-bg: #1a1a1a;
+    --footer-text: #ffffff;
+    --overlay-bg: rgba(0, 0, 0, 0.9);
     --transition: all 0.3s ease;
+}
+
+/* Dark theme - via system preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary-color: #ffffff;
+        --secondary-color: #2a2a2a;
+        --accent-color: #e0e0e0;
+        --text-color: #e0e0e0;
+        --light-text: #a0a0a0;
+        --white: #1a1a1a;
+        --border-color: #404040;
+        --bg-color: #1a1a1a;
+        --card-bg: #2a2a2a;
+        --navbar-bg: #1a1a1a;
+        --footer-bg: #0a0a0a;
+        --footer-text: #e0e0e0;
+        --overlay-bg: rgba(0, 0, 0, 0.95);
+    }
+}
+
+/* Dark theme - via manual toggle */
+[data-theme="dark"] {
+    --primary-color: #ffffff;
+    --secondary-color: #2a2a2a;
+    --accent-color: #e0e0e0;
+    --text-color: #e0e0e0;
+    --light-text: #a0a0a0;
+    --white: #1a1a1a;
+    --border-color: #404040;
+    --bg-color: #1a1a1a;
+    --card-bg: #2a2a2a;
+    --navbar-bg: #1a1a1a;
+    --footer-bg: #0a0a0a;
+    --footer-text: #e0e0e0;
+    --overlay-bg: rgba(0, 0, 0, 0.95);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--white);
+    background-color: var(--bg-color);
 }
 
 /* Typography */
@@ -67,7 +110,7 @@ a {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: var(--navbar-bg);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
@@ -120,13 +163,74 @@ a {
     width: 100%;
 }
 
+/* Navigation Controls */
+.nav-controls {
+    display: flex;
+    gap: 0.75rem;
+    margin-left: 2rem;
+    align-items: center;
+}
+
+/* Language Toggle Button */
+.lang-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lang-toggle:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.lang-text {
+    display: block;
+    line-height: 1;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+.theme-icon {
+    display: block;
+    line-height: 1;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: var(--secondary-color);
     margin-top: 80px;
     position: relative;
 }
@@ -154,8 +258,8 @@ a {
 .cta-button {
     display: inline-block;
     padding: 1rem 3rem;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
     font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -290,7 +394,7 @@ section {
 
 /* About Page */
 .about-section {
-    background-color: var(--white);
+    background-color: var(--bg-color);
 }
 
 .about-grid {
@@ -305,12 +409,14 @@ section {
     aspect-ratio: 3/4;
     overflow: hidden;
     background-color: var(--secondary-color);
+    border-radius: 8px;
 }
 
 .about-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
 }
 
 .about-text h2 {
@@ -364,7 +470,7 @@ section {
 
 .service-card {
     padding: 40px 30px;
-    background-color: var(--white);
+    background-color: var(--card-bg);
     transition: var(--transition);
 }
 
@@ -400,7 +506,7 @@ section {
 
 .filter-btn {
     padding: 0.8rem 2rem;
-    background-color: var(--white);
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     color: var(--text-color);
     font-size: 0.9rem;
@@ -412,9 +518,9 @@ section {
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-color: var(--primary-color);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
 }
 
 .work-gallery {
@@ -430,7 +536,7 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.95);
+    background-color: var(--overlay-bg);
 }
 
 .lightbox.active {
@@ -511,7 +617,7 @@ section {
 
 /* Contact Page */
 .contact-section {
-    background-color: var(--white);
+    background-color: var(--bg-color);
 }
 
 .contact-grid {
@@ -598,7 +704,8 @@ section {
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
-    background-color: var(--white);
+    background-color: var(--card-bg);
+    color: var(--text-color);
 }
 
 .form-group input:focus,
@@ -614,8 +721,8 @@ section {
 
 .submit-button {
     padding: 1rem 3rem;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--accent-color);
+    color: var(--bg-color);
     border: none;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -654,8 +761,8 @@ section {
 
 /* Footer */
 .footer {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     padding: 60px 0 40px;
 }
 
@@ -676,7 +783,7 @@ section {
 }
 
 .social-links a {
-    color: var(--white);
+    color: var(--footer-text);
     opacity: 0.8;
     transition: var(--transition);
     font-size: 0.9rem;

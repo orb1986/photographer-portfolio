@@ -1,0 +1,132 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "work": "My Work",
+      "contact": "Contact"
+    },
+    "home": {
+      "heroTitle": "Capturing Moments,<br>Creating Stories",
+      "heroSubtitle": "Professional Photography Portfolio",
+      "ctaButton": "View My Work",
+      "featuredWork": "Featured Work",
+      "aboutTitle": "About My Work",
+      "aboutText": "Passionate about capturing authentic moments and creating timeless imagery. With years of experience in portrait, landscape, and event photography, I bring a unique perspective to every project.",
+      "learnMore": "Learn More →"
+    },
+    "about": {
+      "pageTitle": "About Me",
+      "subtitle": "Professional Photographer",
+      "bio": "I am a professional photographer with a passion for capturing the beauty in everyday moments. My journey in photography began over a decade ago, and since then, I've had the privilege of working with diverse clients across multiple genres.",
+      "servicesTitle": "Services",
+      "portraitsTitle": "Portrait Photography",
+      "portraitsDesc": "Professional headshots and personal portraits that capture your unique personality.",
+      "landscapesTitle": "Landscape Photography",
+      "landscapesDesc": "Breathtaking natural scenes and architectural photography for personal and commercial use.",
+      "eventsTitle": "Event Photography",
+      "eventsDesc": "Comprehensive coverage of your special occasions, from weddings to corporate events.",
+      "commercialTitle": "Commercial Photography",
+      "commercialDesc": "High-quality product and business photography to elevate your brand.",
+      "achievementsTitle": "Achievements",
+      "achievement1": "Featured in National Geographic",
+      "achievement2": "Winner of Photography Awards 2023",
+      "achievement3": "Over 500 satisfied clients worldwide"
+    },
+    "work": {
+      "pageTitle": "My Work",
+      "subtitle": "Browse my photography portfolio",
+      "filterAll": "All",
+      "filterPortraits": "Portraits",
+      "filterLandscapes": "Landscapes",
+      "filterEvents": "Events",
+      "filterCommercial": "Commercial"
+    },
+    "contact": {
+      "pageTitle": "Get In Touch",
+      "subtitle": "Let's create something amazing together",
+      "intro": "I'd love to hear about your project. Whether you need a photographer for a special event, portraits, or commercial work, feel free to reach out.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "locationLabel": "Location",
+      "socialsLabel": "Social Media",
+      "formName": "Name",
+      "formEmail": "Email",
+      "formMessage": "Message",
+      "formSubmit": "Send Message",
+      "formSuccess": "Thank you! Your message has been sent successfully.",
+      "formError": "Oops! Something went wrong. Please try again."
+    },
+    "footer": {
+      "copyright": "2026 Photography Portfolio. All rights reserved.",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "contact": "Contact"
+    }
+  },
+  "hr": {
+    "nav": {
+      "home": "Početna",
+      "about": "O Meni",
+      "work": "Radovi",
+      "contact": "Kontakt"
+    },
+    "home": {
+      "heroTitle": "Hvatam Trenutke,<br>Stvaram Priče",
+      "heroSubtitle": "Profesionalni Fotografski Portfolio",
+      "ctaButton": "Pogledaj Radove",
+      "featuredWork": "Istaknuti Radovi",
+      "aboutTitle": "O Mojem Radu",
+      "aboutText": "Strast prema hvatanju autentičnih trenutaka i stvaranju bezvremenih slika. S godinama iskustva u portretnoj, pejzažnoj i event fotografiji, donosim jedinstvenu perspektivu svakom projektu.",
+      "learnMore": "Saznaj Više →"
+    },
+    "about": {
+      "pageTitle": "O Meni",
+      "subtitle": "Profesionalni Fotograf",
+      "bio": "Profesionalni sam fotograf sa strašću prema hvatanju ljepote u svakodnevnim trenucima. Moje putovanje u fotografiji započelo je prije više od desetljeća, i od tada sam imao privilegiju raditi s raznim klijentima u više žanrova.",
+      "servicesTitle": "Usluge",
+      "portraitsTitle": "Portretna Fotografija",
+      "portraitsDesc": "Profesionalne fotografije koje hvataju vašu jedinstvenu osobnost.",
+      "landscapesTitle": "Pejzažna Fotografija",
+      "landscapesDesc": "Zadivljujuće prirodne scene i arhitektonska fotografija za privatnu i komercijalnu upotrebu.",
+      "eventsTitle": "Event Fotografija",
+      "eventsDesc": "Sveobuhvatno pokrivanje vaših posebnih prigoda, od vjenčanja do korporativnih događaja.",
+      "commercialTitle": "Komercijalna Fotografija",
+      "commercialDesc": "Visokokvalitetna fotografija proizvoda i poslovanja za unapređenje vašeg brenda.",
+      "achievementsTitle": "Postignuća",
+      "achievement1": "Objavljeno u National Geographic",
+      "achievement2": "Dobitnik Photography Awards 2023",
+      "achievement3": "Preko 500 zadovoljnih klijenata širom svijeta"
+    },
+    "work": {
+      "pageTitle": "Moji Radovi",
+      "subtitle": "Pregledajte moj fotografski portfolio",
+      "filterAll": "Sve",
+      "filterPortraits": "Portreti",
+      "filterLandscapes": "Pejzaži",
+      "filterEvents": "Eventi",
+      "filterCommercial": "Komercijalno"
+    },
+    "contact": {
+      "pageTitle": "Kontaktirajte Me",
+      "subtitle": "Hajdemo stvoriti nešto nevjerojatno zajedno",
+      "intro": "Volio bih čuti o vašem projektu. Bilo da vam treba fotograf za poseban događaj, portrete ili komercijalni rad, slobodno me kontaktirajte.",
+      "emailLabel": "Email",
+      "phoneLabel": "Telefon",
+      "locationLabel": "Lokacija",
+      "socialsLabel": "Društvene Mreže",
+      "formName": "Ime",
+      "formEmail": "Email",
+      "formMessage": "Poruka",
+      "formSubmit": "Pošalji Poruku",
+      "formSuccess": "Hvala! Vaša poruka je uspješno poslana.",
+      "formError": "Ups! Nešto je pošlo po zlu. Pokušajte ponovo."
+    },
+    "footer": {
+      "copyright": "2026 Fotografski Portfolio. Sva prava pridržana.",
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "contact": "Kontakt"
+    }
+  }
+}

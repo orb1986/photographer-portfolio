@@ -11,30 +11,38 @@
         <div class="nav-container">
             <a href="index.html" class="logo">PHOTOGRAPHER</a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="work.html" class="nav-link active">My Work</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="work.html" class="nav-link active" data-i18n="nav.work">My Work</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="nav-controls">
+                <button id="langToggle" class="lang-toggle" aria-label="Change language">
+                    <span class="lang-text">HR</span>
+                </button>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <main>
         <section class="page-hero">
             <div class="container">
-                <h1>My Work</h1>
-                <p class="subtitle">A collection of my favorite moments captured through the lens</p>
+                <h1 data-i18n="work.pageTitle">My Work</h1>
+                <p class="subtitle" data-i18n="work.subtitle">Browse my photography portfolio</p>
             </div>
         </section>
 
         <section class="filter-section">
             <div class="container">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="portraits">Portraits</button>
-                    <button class="filter-btn" data-category="landscapes">Landscapes</button>
-                    <button class="filter-btn" data-category="events">Events</button>
-                    <button class="filter-btn" data-category="commercial">Commercial</button>
+                    <button class="filter-btn active" data-category="all" data-i18n="work.filterAll">All</button>
+                    <button class="filter-btn" data-category="portraits" data-i18n="work.filterPortraits">Portraits</button>
+                    <button class="filter-btn" data-category="landscapes" data-i18n="work.filterLandscapes">Landscapes</button>
+                    <button class="filter-btn" data-category="events" data-i18n="work.filterEvents">Events</button>
+                    <button class="filter-btn" data-category="commercial" data-i18n="work.filterCommercial">Commercial</button>
                 </div>
             </div>
         </section>
@@ -59,11 +67,11 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Photography Portfolio. All rights reserved.</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Photography Portfolio. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Facebook">Facebook</a>
-                <a href="contact.html">Contact</a>
+                <a href="#" aria-label="Instagram" data-i18n="footer.instagram">Instagram</a>
+                <a href="#" aria-label="Facebook" data-i18n="footer.facebook">Facebook</a>
+                <a href="contact.html" data-i18n="footer.contact">Contact</a>
             </div>
         </div>
     </footer>
