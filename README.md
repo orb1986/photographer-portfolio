@@ -295,6 +295,47 @@ photographer-portfolio/
 - Verify the category name is spelled correctly (case-sensitive)
 - Check that JavaScript is enabled in your browser
 
+## Deployment to GitHub Pages
+
+This website is hosted on GitHub Pages and is accessible at:
+**https://orb1986.github.io/photographer-portfolio/**
+
+### Initial Setup
+
+1. **Navigate to Repository Settings:**
+   - Go to https://github.com/orb1986/photographer-portfolio
+   - Click on "Settings" tab
+
+2. **Configure GitHub Pages:**
+   - In the left sidebar, click on "Pages"
+   - Under "Build and deployment":
+     - **Source**: Select "Deploy from a branch"
+     - **Branch**: Select "main"
+     - **Folder**: Select "/ (root)"
+   - Click "Save"
+
+3. **Wait for Deployment:**
+   - GitHub will automatically build and deploy your site (1-3 minutes)
+   - Your site will be live at https://orb1986.github.io/photographer-portfolio/
+
+### Updating the Live Site
+
+Every time you push changes to the main branch, GitHub Pages automatically redeploys:
+
+```bash
+git add .
+git commit -m "Your update description"
+git push
+```
+
+The live site will update within 1-3 minutes. No additional steps needed!
+
+### Checking Deployment Status
+
+- Go to your repository on GitHub
+- Click the "Actions" tab to see deployment progress
+- Once complete, you'll see a green checkmark
+
 ## Future Enhancements
 
 Consider adding:
