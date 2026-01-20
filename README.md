@@ -300,6 +300,8 @@ photographer-portfolio/
 This website is hosted on GitHub Pages and is accessible at:
 **https://orb1986.github.io/photographer-portfolio/**
 
+**Note:** After pushing changes, GitHub Pages may take 1-3 minutes to rebuild and deploy. Clear your browser cache if you don't see updates immediately.
+
 ### Initial Setup
 
 1. **Navigate to Repository Settings:**
