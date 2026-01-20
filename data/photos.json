@@ -1,0 +1,112 @@
+{
+  "photos": [
+    {
+      "id": 1,
+      "title": "Golden Hour Portrait",
+      "description": "Natural light portrait session",
+      "category": "portraits",
+      "image": "https://picsum.photos/seed/portrait1/1200/800",
+      "_comment": "Replace with: images/golden-hour-portrait.jpg",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Mountain Landscape",
+      "description": "Sunrise over the peaks",
+      "category": "landscapes",
+      "image": "https://picsum.photos/seed/landscape1/1200/800",
+      "_comment": "Replace with: images/mountain-landscape.jpg",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Wedding Ceremony",
+      "description": "Beautiful outdoor wedding",
+      "category": "events",
+      "image": "https://picsum.photos/seed/event1/1200/800",
+      "_comment": "Replace with: images/wedding-ceremony.jpg",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Product Photography",
+      "description": "Commercial product shoot",
+      "category": "commercial",
+      "image": "https://picsum.photos/seed/commercial1/1200/800",
+      "_comment": "Replace with: images/product-photography.jpg",
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Family Portrait",
+      "description": "Lifestyle family session",
+      "category": "portraits",
+      "image": "https://picsum.photos/seed/portrait2/1200/800",
+      "_comment": "Replace with: images/family-portrait.jpg",
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Ocean Vista",
+      "description": "Coastal landscape photography",
+      "category": "landscapes",
+      "image": "https://picsum.photos/seed/landscape2/1200/800",
+      "_comment": "Replace with: images/ocean-vista.jpg",
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "Corporate Event",
+      "description": "Business conference coverage",
+      "category": "events",
+      "image": "https://picsum.photos/seed/event2/1200/800",
+      "_comment": "Replace with: images/corporate-event.jpg",
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Fashion Editorial",
+      "description": "Studio fashion shoot",
+      "category": "commercial",
+      "image": "https://picsum.photos/seed/commercial2/1200/800",
+      "_comment": "Replace with: images/fashion-editorial.jpg",
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "Street Portrait",
+      "description": "Urban portrait session",
+      "category": "portraits",
+      "image": "https://picsum.photos/seed/portrait3/1200/800",
+      "_comment": "Replace with: images/street-portrait.jpg",
+      "featured": false
+    },
+    {
+      "id": 10,
+      "title": "Forest Path",
+      "description": "Autumn forest landscape",
+      "category": "landscapes",
+      "image": "https://picsum.photos/seed/landscape3/1200/800",
+      "_comment": "Replace with: images/forest-path.jpg",
+      "featured": false
+    },
+    {
+      "id": 11,
+      "title": "Birthday Party",
+      "description": "Children's celebration",
+      "category": "events",
+      "image": "https://picsum.photos/seed/event3/1200/800",
+      "_comment": "Replace with: images/birthday-party.jpg",
+      "featured": false
+    },
+    {
+      "id": 12,
+      "title": "Restaurant Interior",
+      "description": "Commercial space photography",
+      "category": "commercial",
+      "image": "https://picsum.photos/seed/commercial3/1200/800",
+      "_comment": "Replace with: images/restaurant-interior.jpg",
+      "featured": false
+    }
+  ]
+}
