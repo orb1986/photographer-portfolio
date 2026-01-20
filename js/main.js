@@ -1,3 +1,145 @@
+// Mobile Menu Manager
+class MobileMenuManager {
+    constructor() {
+        this.menuToggle = document.querySelector('.mobile-menu-toggle');
+        this.navMenu = document.querySelector('.nav-menu');
+        this.overlay = document.querySelector('.mobile-overlay');
+        this.navLinks = document.querySelectorAll('.nav-link');
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        // Toggle menu on hamburger click
+        if (this.menuToggle) {
+            this.menuToggle.addEventListener('click', () => this.toggleMenu());
+        }
+
+        // Close menu on overlay click
+        if (this.overlay) {
+            this.overlay.addEventListener('click', () => this.closeMenu());
+        }
+
+        // Close menu on nav link click
+        this.navLinks.forEach(link => {
+            link.addEventListener('click', () => this.closeMenu());
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.navMenu && this.navMenu.classList.contains('active')) {
+                this.closeMenu();
+            }
+        });
+    }
+
+    toggleMenu() {
+        if (this.menuToggle && this.navMenu && this.overlay) {
+            this.menuToggle.classList.toggle('active');
+            this.navMenu.classList.toggle('active');
+            this.overlay.classList.toggle('active');
+
+            // Prevent body scroll when menu is open
+            if (this.navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+    }
+
+    closeMenu() {
+        if (this.menuToggle && this.navMenu && this.overlay) {
+            this.menuToggle.classList.remove('active');
+            this.navMenu.classList.remove('active');
+            this.overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+}
+
+// Back to Top Manager
+class BackToTopManager {
+    constructor() {
+        this.button = null;
+        this.init();
+    }
+
+    init() {
+        this.createButton();
+        this.setupEventListeners();
+    }
+
+    createButton() {
+        // Create button element
+        this.button = document.createElement('button');
+        this.button.className = 'back-to-top';
+        this.button.innerHTML = '↑';
+        this.button.setAttribute('aria-label', 'Back to top');
+        document.body.appendChild(this.button);
+    }
+
+    setupEventListeners() {
+        // Show/hide button on scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                this.button.classList.add('visible');
+            } else {
+                this.button.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top on click
+        this.button.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Scroll Animation Manager
+class ScrollAnimationManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupScrollObserver();
+    }
+
+    setupScrollObserver() {
+        const elementsToAnimate = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            elementsToAnimate.forEach(element => {
+                observer.observe(element);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            elementsToAnimate.forEach(element => {
+                element.classList.add('visible');
+            });
+        }
+    }
+}
+
 // Theme Manager
 class ThemeManager {
     constructor() {
@@ -344,13 +486,16 @@ class PhotoGallery {
 
         featuredGallery.innerHTML = featuredPhotos.map(photo => `
             <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
-                <img src="${photo.image}" alt="${photo.title}" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
+                <img data-src="${photo.image}" alt="${photo.title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
                 <div class="gallery-overlay">
                     <h3>${photo.title}</h3>
                     <p>${photo.description}</p>
                 </div>
             </div>
         `).join('');
+
+        // Initialize lazy loading for newly added images
+        this.initLazyLoad();
     }
 
     renderWorkGallery() {
@@ -364,13 +509,46 @@ class PhotoGallery {
 
         workGallery.innerHTML = this.filteredPhotos.map(photo => `
             <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
-                <img src="${photo.image}" alt="${photo.title}" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
+                <img data-src="${photo.image}" alt="${photo.title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
                 <div class="gallery-overlay">
                     <h3>${photo.title}</h3>
                     <p>${photo.description}</p>
                 </div>
             </div>
         `).join('');
+
+        // Initialize lazy loading for newly added images
+        this.initLazyLoad();
+    }
+
+    initLazyLoad() {
+        const lazyImages = document.querySelectorAll('img.lazy-load');
+
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-load');
+                        img.classList.add('lazy-loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.01
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-load');
+                img.classList.add('lazy-loaded');
+            });
+        }
     }
 
     openLightbox(photoId) {
@@ -460,11 +638,17 @@ class PhotoGallery {
     }
 }
 
-// Initialize language, theme and gallery when DOM is loaded
+// Initialize all managers when DOM is loaded
 let gallery;
 let themeManager;
 let languageManager;
+let mobileMenuManager;
+let backToTopManager;
+let scrollAnimationManager;
 document.addEventListener('DOMContentLoaded', () => {
+    mobileMenuManager = new MobileMenuManager();
+    backToTopManager = new BackToTopManager();
+    scrollAnimationManager = new ScrollAnimationManager();
     languageManager = new LanguageManager();
     themeManager = new ThemeManager();
     gallery = new PhotoGallery();

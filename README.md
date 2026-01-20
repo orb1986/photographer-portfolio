@@ -6,6 +6,7 @@ A clean, minimalist photography portfolio website with easy photo management sys
 
 - **Elegant Typography**: Professional Google Fonts (Playfair Display & Poppins) for a refined look
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
+- **Mobile Navigation**: Hamburger menu with smooth slide-in animation for mobile devices
 - **Dark Mode Support**: Automatic theme switching based on system preference, with manual toggle
 - **Multi-Language Support**: Full Croatian (HR) and English (EN) translations with language switcher
 - **4 Main Pages**:
@@ -17,6 +18,11 @@ A clean, minimalist photography portfolio website with easy photo management sys
 - **Easy Photo Management**: JSON-based system for adding/editing photos
 - **Category Filtering**: Filter photos by category (Portraits, Landscapes, Events, Commercial)
 - **Social Integration**: Linked to Instagram, Facebook, and LinkedIn profiles
+- **Performance Optimizations**:
+  - Image lazy loading for faster page loads
+  - Smooth scroll animations
+  - Back to top button for easy navigation
+- **SEO Optimized**: Comprehensive meta tags for better search engine visibility and social media sharing
 
 ## Getting Started
 
@@ -252,6 +258,37 @@ Update your social media URLs in all HTML files (footer sections):
 - Facebook: Currently linked to stype85
 - LinkedIn: Currently linked to stipe-boscic
 
+## Performance Features
+
+### Mobile Navigation
+- **Hamburger Menu**: Automatically appears on screens smaller than 768px
+- **Slide-in Animation**: Smooth transition from the right side
+- **Overlay**: Dark overlay behind menu for better focus
+- **Auto-close**: Menu closes when clicking links, overlay, or pressing Escape
+
+### Image Lazy Loading
+- **Automatic**: Images load only when they're about to enter the viewport
+- **Performance**: Reduces initial page load time significantly
+- **Fade-in Effect**: Smooth opacity transition when images load
+- **Fallback**: Works even in older browsers without IntersectionObserver
+
+### Back to Top Button
+- **Auto-show**: Appears after scrolling 300px down the page
+- **Smooth Scroll**: Animated scroll back to top
+- **Responsive**: Adjusts size and position on mobile devices
+- **Always Accessible**: Fixed position in bottom-right corner
+
+### Scroll Animations
+- **Fade-in Effects**: Elements animate into view as you scroll
+- **Smooth Transitions**: Subtle animations enhance user experience without distraction
+- **Performance**: Uses IntersectionObserver for efficient animation triggering
+
+### SEO Optimization
+- **Meta Tags**: Title, description, and keywords on all pages
+- **Open Graph**: Optimized for Facebook sharing
+- **Twitter Cards**: Enhanced previews when shared on Twitter
+- **Semantic HTML**: Proper heading hierarchy and structure
+
 ## File Structure
 
 ```
@@ -270,7 +307,8 @@ photographer-portfolio/
 │   └── main.js         # Gallery and interactions
 │
 ├── data/
-│   └── photos.json     # Photo database (EDIT THIS TO ADD PHOTOS)
+│   ├── photos.json     # Photo database (EDIT THIS TO ADD PHOTOS)
+│   └── translations.json  # Language translations
 │
 └── images/             # Place your photos here
     └── README.txt

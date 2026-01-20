@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Portfolio</title>
+    <title>Photography Portfolio - Professional Photographer</title>
+    <meta name="description" content="Professional photography portfolio showcasing portraits, landscapes, events, and commercial work. Capturing authentic moments and creating timeless imagery.">
+    <meta name="keywords" content="photography, photographer, portrait photography, landscape photography, event photography, commercial photography, professional photographer">
+    <meta name="author" content="Photographer">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://orb1986.github.io/photographer-portfolio/">
+    <meta property="og:title" content="Photography Portfolio - Professional Photographer">
+    <meta property="og:description" content="Professional photography portfolio showcasing portraits, landscapes, events, and commercial work.">
+    <meta property="og:image" content="https://orb1986.github.io/photographer-portfolio/images/myself.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://orb1986.github.io/photographer-portfolio/">
+    <meta property="twitter:title" content="Photography Portfolio - Professional Photographer">
+    <meta property="twitter:description" content="Professional photography portfolio showcasing portraits, landscapes, events, and commercial work.">
+    <meta property="twitter:image" content="https://orb1986.github.io/photographer-portfolio/images/myself.jpg">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">PHOTOGRAPHER</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a></li>
                 <li><a href="about.html" class="nav-link" data-i18n="nav.about">About</a></li>
@@ -26,6 +47,7 @@
             </div>
         </div>
     </nav>
+    <div class="mobile-overlay"></div>
 
     <main>
         <section class="hero">
