@@ -4,6 +4,7 @@ A clean, minimalist photography portfolio website with easy photo management sys
 
 ## Features
 
+- **Elegant Typography**: Professional Google Fonts (Playfair Display & Poppins) for a refined look
 - **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
 - **Dark Mode Support**: Automatic theme switching based on system preference, with manual toggle
 - **Multi-Language Support**: Full Croatian (HR) and English (EN) translations with language switcher
@@ -15,6 +16,7 @@ A clean, minimalist photography portfolio website with easy photo management sys
 - **Interactive Gallery**: Lightbox viewer with keyboard navigation
 - **Easy Photo Management**: JSON-based system for adding/editing photos
 - **Category Filtering**: Filter photos by category (Portraits, Landscapes, Events, Commercial)
+- **Social Integration**: Linked to Instagram, Facebook, and LinkedIn profiles
 
 ## Getting Started
 
@@ -234,10 +236,20 @@ Both light and dark themes use CSS variables. Customize in `css/style.css`:
 ```
 
 **Fonts:**
-Change the `font-family` in the `body` selector
+The site uses elegant Google Fonts for a professional look:
+- **Playfair Display** - For headings (serif, elegant)
+- **Poppins** - For body text (sans-serif, clean)
+
+To change fonts, update the `@import` statement at the top of `css/style.css` and modify the font-family properties.
 
 **Layout:**
 Adjust spacing, padding, and margins throughout the CSS file
+
+**Social Media Links:**
+Update your social media URLs in all HTML files (footer sections):
+- Instagram: Currently linked to @stipeboscic
+- Facebook: Currently linked to stype85
+- LinkedIn: Currently linked to stipe-boscic
 
 ## File Structure
 
