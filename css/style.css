@@ -411,15 +411,15 @@ a {
 }
 
 /* Specific background for each page */
-body:has(#aboutPage) .page-hero::before {
+.page-hero-about::before {
     background-image: var(--about-bg-image, none);
 }
 
-body:has(#workPage) .page-hero::before {
+.page-hero-work::before {
     background-image: var(--work-bg-image, none);
 }
 
-body:has(#contactPage) .page-hero::before {
+.page-hero-contact::before {
     background-image: var(--contact-bg-image, none);
 }
 
