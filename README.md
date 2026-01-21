@@ -72,8 +72,14 @@ Then visit `http://localhost:8000` (or the port shown) in your browser.
 ```json
 {
   "id": 13,
-  "title": "Your Photo Title",
-  "description": "Brief description of the photo",
+  "title": {
+    "en": "Your Photo Title",
+    "hr": "Naslov Vaše Fotografije"
+  },
+  "description": {
+    "en": "Brief description of the photo",
+    "hr": "Kratak opis fotografije"
+  },
   "category": "portraits",
   "image": "images/your-photo.jpg",
   "featured": false
@@ -83,11 +89,17 @@ Then visit `http://localhost:8000` (or the port shown) in your browser.
 ### Photo Properties Explained
 
 - **id**: Unique number for each photo (increment from the last photo)
-- **title**: The name of your photo (displayed in gallery)
-- **description**: Short description (displayed in overlay and lightbox)
+- **title**: The name of your photo with English and Croatian translations
+  - `"en"`: English title
+  - `"hr"`: Croatian (Hrvatski) title
+- **description**: Short description with English and Croatian translations
+  - `"en"`: English description
+  - `"hr"`: Croatian description
 - **category**: Must be one of: `portraits`, `landscapes`, `events`, `commercial`
 - **image**: Path to your image file (must start with `images/`)
 - **featured**: Set to `true` to show on homepage, `false` otherwise
+
+**Note:** The gallery automatically displays titles and descriptions in the current language (EN/HR). When users switch languages, photo information updates automatically.
 
 ### Example: Adding a New Photo
 
@@ -98,8 +110,14 @@ Then visit `http://localhost:8000` (or the port shown) in your browser.
 ```json
 {
   "id": 13,
-  "title": "Sunset Beach",
-  "description": "Beautiful sunset at the coast",
+  "title": {
+    "en": "Sunset Beach",
+    "hr": "Zalazak Sunca na Plaži"
+  },
+  "description": {
+    "en": "Beautiful sunset at the coast",
+    "hr": "Prekrasan zalazak sunca na obali"
+  },
   "category": "landscapes",
   "image": "images/my-new-photo.jpg",
   "featured": true
@@ -248,6 +266,14 @@ The site uses elegant Google Fonts for a professional look:
 - **Poppins** - For body text (sans-serif, clean)
 
 To change fonts, update the `@import` statement at the top of `css/style.css` and modify the font-family properties.
+
+**Hero Background Image:**
+To set a custom background image for the homepage hero section:
+1. Open `css/style.css`
+2. Find line 17: `--hero-bg-image: url('https://picsum.photos/seed/hero/1920/1080');`
+3. Replace with your image: `--hero-bg-image: url('images/your-image.jpg');`
+4. The image will be automatically semi-transparent (15% opacity in light mode, 8% in dark mode) to blend with the theme
+5. To remove the background image, set it to `none`: `--hero-bg-image: none;`
 
 **Layout:**
 Adjust spacing, padding, and margins throughout the CSS file

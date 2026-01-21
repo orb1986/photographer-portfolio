@@ -272,6 +272,11 @@ class LanguageManager {
 
         this.updateButtonText();
         this.translatePage();
+
+        // Re-render galleries when language changes
+        if (gallery && gallery.photos.length > 0) {
+            gallery.renderGalleries();
+        }
     }
 
     updateButtonText() {
@@ -483,16 +488,22 @@ class PhotoGallery {
         if (!featuredGallery) return;
 
         const featuredPhotos = this.photos.filter(photo => photo.featured);
+        const currentLang = languageManager ? languageManager.currentLang : 'en';
 
-        featuredGallery.innerHTML = featuredPhotos.map(photo => `
-            <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
-                <img data-src="${photo.image}" alt="${photo.title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
-                <div class="gallery-overlay">
-                    <h3>${photo.title}</h3>
-                    <p>${photo.description}</p>
+        featuredGallery.innerHTML = featuredPhotos.map(photo => {
+            const title = typeof photo.title === 'object' ? photo.title[currentLang] : photo.title;
+            const description = typeof photo.description === 'object' ? photo.description[currentLang] : photo.description;
+
+            return `
+                <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
+                    <img data-src="${photo.image}" alt="${title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
+                    <div class="gallery-overlay">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Initialize lazy loading for newly added images
         this.initLazyLoad();
@@ -503,19 +514,28 @@ class PhotoGallery {
         if (!workGallery) return;
 
         if (this.filteredPhotos.length === 0) {
-            workGallery.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: #666;">No photos found in this category.</p>';
+            const currentLang = languageManager ? languageManager.currentLang : 'en';
+            const noPhotosText = currentLang === 'hr' ? 'Nema fotografija u ovoj kategoriji.' : 'No photos found in this category.';
+            workGallery.innerHTML = `<p style="text-align: center; grid-column: 1/-1; color: #666;">${noPhotosText}</p>`;
             return;
         }
 
-        workGallery.innerHTML = this.filteredPhotos.map(photo => `
-            <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
-                <img data-src="${photo.image}" alt="${photo.title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
-                <div class="gallery-overlay">
-                    <h3>${photo.title}</h3>
-                    <p>${photo.description}</p>
+        const currentLang = languageManager ? languageManager.currentLang : 'en';
+
+        workGallery.innerHTML = this.filteredPhotos.map(photo => {
+            const title = typeof photo.title === 'object' ? photo.title[currentLang] : photo.title;
+            const description = typeof photo.description === 'object' ? photo.description[currentLang] : photo.description;
+
+            return `
+                <div class="gallery-item" onclick="gallery.openLightbox(${photo.id})">
+                    <img data-src="${photo.image}" alt="${title}" class="lazy-load" onerror="this.src='https://via.placeholder.com/600x450/e0e0e0/999?text=Sample+Photo'">
+                    <div class="gallery-overlay">
+                        <h3>${title}</h3>
+                        <p>${description}</p>
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Initialize lazy loading for newly added images
         this.initLazyLoad();
@@ -562,6 +582,10 @@ class PhotoGallery {
         const lightboxCaption = document.getElementById('lightboxCaption');
 
         if (lightbox && lightboxImage && lightboxCaption) {
+            const currentLang = languageManager ? languageManager.currentLang : 'en';
+            const title = typeof photo.title === 'object' ? photo.title[currentLang] : photo.title;
+            const description = typeof photo.description === 'object' ? photo.description[currentLang] : photo.description;
+
             // Check if image exists, otherwise use placeholder
             const img = new Image();
             img.onload = () => {
@@ -572,7 +596,7 @@ class PhotoGallery {
             };
             img.src = photo.image;
 
-            lightboxCaption.innerHTML = `<h3>${photo.title}</h3><p>${photo.description}</p>`;
+            lightboxCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -598,6 +622,10 @@ class PhotoGallery {
         const lightboxCaption = document.getElementById('lightboxCaption');
 
         if (lightboxImage && lightboxCaption && photo) {
+            const currentLang = languageManager ? languageManager.currentLang : 'en';
+            const title = typeof photo.title === 'object' ? photo.title[currentLang] : photo.title;
+            const description = typeof photo.description === 'object' ? photo.description[currentLang] : photo.description;
+
             // Check if image exists, otherwise use placeholder
             const img = new Image();
             img.onload = () => {
@@ -608,7 +636,7 @@ class PhotoGallery {
             };
             img.src = photo.image;
 
-            lightboxCaption.innerHTML = `<h3>${photo.title}</h3><p>${photo.description}</p>`;
+            lightboxCaption.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
         }
     }
 

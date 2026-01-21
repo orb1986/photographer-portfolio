@@ -2,8 +2,14 @@
   "photos": [
     {
       "id": 1,
-      "title": "Golden Hour Portrait",
-      "description": "Natural light portrait session",
+      "title": {
+        "en": "Golden Hour Portrait",
+        "hr": "Portret Zlatnog Sata"
+      },
+      "description": {
+        "en": "Natural light portrait session",
+        "hr": "Portretna sesija s prirodnim svjetlom"
+      },
       "category": "portraits",
       "image": "https://picsum.photos/seed/portrait1/1200/800",
       "_comment": "Replace with: images/golden-hour-portrait.jpg",
@@ -11,8 +17,14 @@
     },
     {
       "id": 2,
-      "title": "Mountain Landscape",
-      "description": "Sunrise over the peaks",
+      "title": {
+        "en": "Mountain Landscape",
+        "hr": "Planinski Pejzaž"
+      },
+      "description": {
+        "en": "Sunrise over the peaks",
+        "hr": "Izlazak sunca iznad vrhova"
+      },
       "category": "landscapes",
       "image": "https://picsum.photos/seed/landscape1/1200/800",
       "_comment": "Replace with: images/mountain-landscape.jpg",
@@ -20,8 +32,14 @@
     },
     {
       "id": 3,
-      "title": "Wedding Ceremony",
-      "description": "Beautiful outdoor wedding",
+      "title": {
+        "en": "Wedding Ceremony",
+        "hr": "Vjenčana Ceremonija"
+      },
+      "description": {
+        "en": "Beautiful outdoor wedding",
+        "hr": "Prekrasno vjenčanje na otvorenom"
+      },
       "category": "events",
       "image": "https://picsum.photos/seed/event1/1200/800",
       "_comment": "Replace with: images/wedding-ceremony.jpg",
@@ -29,8 +47,14 @@
     },
     {
       "id": 4,
-      "title": "Product Photography",
-      "description": "Commercial product shoot",
+      "title": {
+        "en": "Product Photography",
+        "hr": "Fotografija Proizvoda"
+      },
+      "description": {
+        "en": "Commercial product shoot",
+        "hr": "Komercijalno snimanje proizvoda"
+      },
       "category": "commercial",
       "image": "https://picsum.photos/seed/commercial1/1200/800",
       "_comment": "Replace with: images/product-photography.jpg",
@@ -38,8 +62,14 @@
     },
     {
       "id": 5,
-      "title": "Family Portrait",
-      "description": "Lifestyle family session",
+      "title": {
+        "en": "Family Portrait",
+        "hr": "Obiteljski Portret"
+      },
+      "description": {
+        "en": "Lifestyle family session",
+        "hr": "Lifestyle obiteljska sesija"
+      },
       "category": "portraits",
       "image": "https://picsum.photos/seed/portrait2/1200/800",
       "_comment": "Replace with: images/family-portrait.jpg",
@@ -47,8 +77,14 @@
     },
     {
       "id": 6,
-      "title": "Ocean Vista",
-      "description": "Coastal landscape photography",
+      "title": {
+        "en": "Ocean Vista",
+        "hr": "Oceanski Pogled"
+      },
+      "description": {
+        "en": "Coastal landscape photography",
+        "hr": "Fotografija obalnog pejzaža"
+      },
       "category": "landscapes",
       "image": "https://picsum.photos/seed/landscape2/1200/800",
       "_comment": "Replace with: images/ocean-vista.jpg",
@@ -56,8 +92,14 @@
     },
     {
       "id": 7,
-      "title": "Corporate Event",
-      "description": "Business conference coverage",
+      "title": {
+        "en": "Corporate Event",
+        "hr": "Korporativni Događaj"
+      },
+      "description": {
+        "en": "Business conference coverage",
+        "hr": "Pokrivanje poslovne konferencije"
+      },
       "category": "events",
       "image": "https://picsum.photos/seed/event2/1200/800",
       "_comment": "Replace with: images/corporate-event.jpg",
@@ -65,8 +107,14 @@
     },
     {
       "id": 8,
-      "title": "Fashion Editorial",
-      "description": "Studio fashion shoot",
+      "title": {
+        "en": "Fashion Editorial",
+        "hr": "Modni Editorial"
+      },
+      "description": {
+        "en": "Studio fashion shoot",
+        "hr": "Studio modno snimanje"
+      },
       "category": "commercial",
       "image": "https://picsum.photos/seed/commercial2/1200/800",
       "_comment": "Replace with: images/fashion-editorial.jpg",
@@ -74,8 +122,14 @@
     },
     {
       "id": 9,
-      "title": "Street Portrait",
-      "description": "Urban portrait session",
+      "title": {
+        "en": "Street Portrait",
+        "hr": "Ulični Portret"
+      },
+      "description": {
+        "en": "Urban portrait session",
+        "hr": "Urbana portretna sesija"
+      },
       "category": "portraits",
       "image": "https://picsum.photos/seed/portrait3/1200/800",
       "_comment": "Replace with: images/street-portrait.jpg",
@@ -83,8 +137,14 @@
     },
     {
       "id": 10,
-      "title": "Forest Path",
-      "description": "Autumn forest landscape",
+      "title": {
+        "en": "Forest Path",
+        "hr": "Šumska Staza"
+      },
+      "description": {
+        "en": "Autumn forest landscape",
+        "hr": "Jesenska šumska pejzaža"
+      },
       "category": "landscapes",
       "image": "https://picsum.photos/seed/landscape3/1200/800",
       "_comment": "Replace with: images/forest-path.jpg",
@@ -92,8 +152,14 @@
     },
     {
       "id": 11,
-      "title": "Birthday Party",
-      "description": "Children's celebration",
+      "title": {
+        "en": "Birthday Party",
+        "hr": "Rođendanska Zabava"
+      },
+      "description": {
+        "en": "Children's celebration",
+        "hr": "Dječja proslava"
+      },
       "category": "events",
       "image": "https://picsum.photos/seed/event3/1200/800",
       "_comment": "Replace with: images/birthday-party.jpg",
@@ -101,8 +167,14 @@
     },
     {
       "id": 12,
-      "title": "Restaurant Interior",
-      "description": "Commercial space photography",
+      "title": {
+        "en": "Restaurant Interior",
+        "hr": "Unutrašnjost Restorana"
+      },
+      "description": {
+        "en": "Commercial space photography",
+        "hr": "Fotografija komercijalnog prostora"
+      },
       "category": "commercial",
       "image": "https://picsum.photos/seed/commercial3/1200/800",
       "_comment": "Replace with: images/restaurant-interior.jpg",
