@@ -12,9 +12,12 @@
 }
 
 :root {
-    /* Hero Background Image - Change this to set your own background image */
+    /* Hero Background Images - Change these to set your own background images */
     /* Example: --hero-bg-image: url('images/hero-background.jpg'); */
     --hero-bg-image: url('https://picsum.photos/seed/hero/1920/1080');
+    --about-bg-image: url('https://picsum.photos/seed/about/1920/1080');
+    --work-bg-image: url('https://picsum.photos/seed/work/1920/1080');
+    --contact-bg-image: url('https://picsum.photos/seed/contact/1920/1080');
 
     /* Light theme (default) */
     --primary-color: #1a1a1a;
@@ -383,12 +386,54 @@ a {
     background-color: var(--secondary-color);
     text-align: center;
     margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Page Hero Background Images */
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .page-hero::before {
+    opacity: 0.08;
+}
+
+/* Specific background for each page */
+body:has(#aboutPage) .page-hero::before {
+    background-image: var(--about-bg-image, none);
+}
+
+body:has(#workPage) .page-hero::before {
+    background-image: var(--work-bg-image, none);
+}
+
+body:has(#contactPage) .page-hero::before {
+    background-image: var(--contact-bg-image, none);
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .page-hero h1 {
     font-size: 4rem;
     font-weight: 500;
     letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
 }
 
 .subtitle {

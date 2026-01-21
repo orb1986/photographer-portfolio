@@ -208,6 +208,59 @@ To modify or add translations:
 
 The language toggle button is located next to the theme toggle in the top navigation bar.
 
+## Contact Form
+
+The contact form on the Contact page is currently a **client-side demo form** that simulates form submission without actually sending emails.
+
+### Current Behavior
+
+When a user submits the form:
+1. The form validates that all fields are filled
+2. Shows a success message: "Thank you for your message! I will get back to you soon."
+3. The form data is logged to the browser console (visible in DevTools)
+4. The form is reset
+5. The success message disappears after 5 seconds
+
+### Setting Up Real Email Delivery
+
+To make the contact form actually send emails, you have several options:
+
+**Option 1: Formspree (Easiest - Free tier available)**
+1. Sign up at [formspree.io](https://formspree.io)
+2. Create a new form and get your form endpoint URL
+3. Update `contact.html` line with the form tag:
+   ```html
+   <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   ```
+4. Remove or comment out the JavaScript form handler in `js/main.js` (lines 643-665)
+
+**Option 2: EmailJS (Free tier: 200 emails/month)**
+1. Sign up at [emailjs.com](https://www.emailjs.com)
+2. Set up an email service and template
+3. Add EmailJS SDK to your HTML
+4. Replace the `handleFormSubmit` function with EmailJS code
+
+**Option 3: Netlify Forms (If hosting on Netlify)**
+1. Add `netlify` attribute to the form tag:
+   ```html
+   <form id="contactForm" name="contact" method="POST" data-netlify="true">
+   ```
+2. Forms will appear in your Netlify dashboard
+
+**Option 4: Backend API**
+- Create your own backend API endpoint
+- Update the form submission to POST to your API
+- Handle email sending on your server
+
+### Form Fields
+
+The contact form includes:
+- **Name**: User's full name
+- **Email**: User's email address (validated)
+- **Message**: User's message (textarea)
+
+All fields are required and have bilingual placeholder text (EN/HR).
+
 ## Customization
 
 ### Changing Site Content
@@ -267,13 +320,18 @@ The site uses elegant Google Fonts for a professional look:
 
 To change fonts, update the `@import` statement at the top of `css/style.css` and modify the font-family properties.
 
-**Hero Background Image:**
-To set a custom background image for the homepage hero section:
+**Hero Background Images:**
+To set custom background images for all page hero sections:
 1. Open `css/style.css`
-2. Find line 17: `--hero-bg-image: url('https://picsum.photos/seed/hero/1920/1080');`
-3. Replace with your image: `--hero-bg-image: url('images/your-image.jpg');`
-4. The image will be automatically semi-transparent (15% opacity in light mode, 8% in dark mode) to blend with the theme
-5. To remove the background image, set it to `none`: `--hero-bg-image: none;`
+2. Find lines 17-20 with the CSS variables:
+   - `--hero-bg-image`: Homepage background
+   - `--about-bg-image`: About page background
+   - `--work-bg-image`: Work/Portfolio page background
+   - `--contact-bg-image`: Contact page background
+3. Replace with your images: `--hero-bg-image: url('images/your-image.jpg');`
+4. Images are automatically semi-transparent (15% opacity in light mode, 8% in dark mode) to blend with the theme
+5. To remove a background, set it to `none`: `--hero-bg-image: none;`
+6. Recommended image size: 1920x1080px or larger
 
 **Layout:**
 Adjust spacing, padding, and margins throughout the CSS file
