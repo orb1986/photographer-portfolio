@@ -16,7 +16,7 @@
     /* Example: --hero-bg-image: url('images/hero-background.jpg'); */
     --hero-bg-image: url('https://picsum.photos/seed/hero/1920/1080');
     --about-bg-image: url('https://picsum.photos/seed/about/1920/1080');
-    --work-bg-image: url('https://picsum.photos/seed/work/1920/1080');
+    --work-bg-image: url('images/my_work.jpg');
     --contact-bg-image: url('https://picsum.photos/seed/contact/1920/1080');
 
     /* Light theme (default) */
