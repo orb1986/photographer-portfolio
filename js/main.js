@@ -144,7 +144,8 @@ class ScrollAnimationManager {
 class ThemeManager {
     constructor() {
         this.themeToggle = document.getElementById('themeToggle');
-        this.themeIcon = document.querySelector('.theme-icon');
+        this.themeToggleMobile = document.getElementById('themeToggleMobile');
+        this.themeIcons = document.querySelectorAll('.theme-icon');
         this.currentTheme = this.getPreferredTheme();
         this.init();
     }
@@ -192,16 +193,18 @@ class ThemeManager {
     }
 
     updateIcon() {
-        if (!this.themeIcon) return;
+        if (!this.themeIcons || this.themeIcons.length === 0) return;
 
         const effectiveTheme = this.getCurrentEffectiveTheme();
 
         // Show icon for the OPPOSITE theme (what clicking will switch to)
-        if (effectiveTheme === 'dark') {
-            this.themeIcon.textContent = '☀️'; // Currently dark, show sun to switch to light
-        } else {
-            this.themeIcon.textContent = '🌙'; // Currently light, show moon to switch to dark
-        }
+        this.themeIcons.forEach(icon => {
+            if (effectiveTheme === 'dark') {
+                icon.textContent = '☀️'; // Currently dark, show sun to switch to light
+            } else {
+                icon.textContent = '🌙'; // Currently light, show moon to switch to dark
+            }
+        });
     }
 
     toggleTheme() {
@@ -220,6 +223,9 @@ class ThemeManager {
         if (this.themeToggle) {
             this.themeToggle.addEventListener('click', () => this.toggleTheme());
         }
+        if (this.themeToggleMobile) {
+            this.themeToggleMobile.addEventListener('click', () => this.toggleTheme());
+        }
 
         // Listen for system theme changes when following system preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
@@ -235,7 +241,8 @@ class ThemeManager {
 class LanguageManager {
     constructor() {
         this.langToggle = document.getElementById('langToggle');
-        this.langText = document.querySelector('.lang-text');
+        this.langToggleMobile = document.getElementById('langToggleMobile');
+        this.langTexts = document.querySelectorAll('.lang-text');
         this.translations = null;
         this.currentLang = this.getPreferredLanguage();
         this.init();
@@ -280,8 +287,10 @@ class LanguageManager {
     }
 
     updateButtonText() {
-        if (!this.langText) return;
-        this.langText.textContent = this.currentLang === 'en' ? 'HR' : 'EN';
+        if (!this.langTexts || this.langTexts.length === 0) return;
+        this.langTexts.forEach(text => {
+            text.textContent = this.currentLang === 'en' ? 'HR' : 'EN';
+        });
     }
 
     translatePage() {
@@ -380,6 +389,9 @@ class LanguageManager {
     setupEventListeners() {
         if (this.langToggle) {
             this.langToggle.addEventListener('click', () => this.toggleLanguage());
+        }
+        if (this.langToggleMobile) {
+            this.langToggleMobile.addEventListener('click', () => this.toggleLanguage());
         }
     }
 }

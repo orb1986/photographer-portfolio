@@ -13,10 +13,10 @@
 
 :root {
     /* Hero Background Images - Change these to set your own background images */
-    /* Example: --hero-bg-image: url('images/hero-background.jpg'); */
+    /* Example: --hero-bg-image: url('../images/hero-background.jpg'); */
     --hero-bg-image: url('https://picsum.photos/seed/hero/1920/1080');
     --about-bg-image: url('https://picsum.photos/seed/about/1920/1080');
-    --work-bg-image: url('images/my_work.jpg');
+    --work-bg-image: url('../images/my_work.jpg');
     --contact-bg-image: url('https://picsum.photos/seed/contact/1920/1080');
 
     /* Light theme (default) */
@@ -224,6 +224,28 @@ a {
     top: 8px;
 }
 
+/* Larger hamburger on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        width: 32px;
+        height: 3px;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        width: 32px;
+        height: 3px;
+    }
+
+    .hamburger::before {
+        top: -10px;
+    }
+
+    .hamburger::after {
+        top: 10px;
+    }
+}
+
 .mobile-menu-toggle.active .hamburger {
     background-color: transparent;
 }
@@ -244,6 +266,15 @@ a {
     gap: 0.75rem;
     margin-left: 2rem;
     align-items: center;
+}
+
+/* Desktop/Mobile visibility helpers */
+.mobile-only {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
 }
 
 /* Language Toggle Button */
@@ -1075,30 +1106,71 @@ section {
 }
 
 @media (max-width: 768px) {
-    /* Mobile Menu Toggle */
-    .mobile-menu-toggle {
-        display: block;
+    /* Narrower navbar on mobile */
+    .navbar {
+        padding: 0;
+        border-bottom: none;
     }
 
-    /* Hide desktop nav menu */
+    /* Mobile navigation container */
+    .nav-container {
+        padding: 0.5rem 1rem;
+        justify-content: flex-start;
+        min-height: auto;
+    }
+
+    /* Hide logo on mobile */
+    .logo {
+        display: none;
+    }
+
+    /* Mobile Menu Toggle - positioned on left */
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        left: 1rem;
+        top: 0.75rem;
+        z-index: 1001;
+    }
+
+    /* Show mobile controls, hide desktop */
+    .mobile-only {
+        display: flex;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    /* Mobile controls inside menu */
+    .nav-controls-mobile {
+        display: flex;
+        gap: 0.75rem;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color);
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    /* Mobile sidebar menu - slides from LEFT */
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%;
         width: 280px;
         height: 100vh;
         background-color: var(--navbar-bg);
         flex-direction: column;
-        padding: 100px 2rem 2rem;
+        padding: 80px 2rem 2rem;
         gap: 2rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.3s ease;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        transition: left 0.3s ease;
         z-index: 1000;
-        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
     }
 
     .nav-menu.active {
-        right: 0;
+        left: 0;
     }
 
     .nav-menu li {

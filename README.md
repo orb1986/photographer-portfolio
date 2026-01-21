@@ -346,9 +346,12 @@ Update your social media URLs in all HTML files (footer sections):
 
 ### Mobile Navigation
 - **Hamburger Menu**: Automatically appears on screens smaller than 768px
-- **Slide-in Animation**: Smooth transition from the right side
+- **Slide-in Animation**: Smooth transition from the left side
+- **Compact Header**: Minimalist header design on mobile with larger, easy-to-tap hamburger icon
+- **Integrated Controls**: Language and theme toggle buttons accessible within the mobile menu
 - **Overlay**: Dark overlay behind menu for better focus
 - **Auto-close**: Menu closes when clicking links, overlay, or pressing Escape
+- **Logo Hidden**: Logo is hidden on mobile for a cleaner, more spacious interface
 
 ### Image Lazy Loading
 - **Automatic**: Images load only when they're about to enter the viewport
